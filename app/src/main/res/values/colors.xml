@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#26de81</color>
+    <color name="colorPrimaryDark">#26de81</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="grdStartSingMode">#FC5C65</color>
+    <color name="grdEndSingMode">#EB3B5A</color>
+    <color name="grdStartMultiMode">#A55EEA</color>
+    <color name="grdEndMultiMode">#8854D0</color>
+
+    <color name="colorGpb1">#FF0099CC</color>
+    <color name="colorGpb2">#FF9933CC</color>
+    <color name="colorGpb3">#FF669900</color>
+    <color name="colorGpb4">#FFFF8800</color>
+</resources>

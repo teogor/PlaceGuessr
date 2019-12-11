@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MultiplayerActivity"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorAccent">
+
+    <FrameLayout
+        android:id="@+id/statusBar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:elevation="5dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rlToolbarData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        android:layout_below="@+id/statusBar">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp">
+
+            <TextView
+                android:id="@+id/txtTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Multiplayer Configure"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="22sp"
+                android:layout_marginStart="20dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rlProgressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="4dp"
+                android:background="@drawable/ic_circle"
+                android:backgroundTint="@color/colorAccent"
+                android:elevation="10dp">
+
+                <ProgressBar
+                    android:id="@+id/loadingProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/colorPrimary"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/btnToolbar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="4dp"
+                android:src="@drawable/baseline_check_black_48"
+                android:tint="@color/colorPrimary"
+                android:background="@drawable/ic_circle"
+                android:backgroundTint="@color/colorAccent"
+                tools:ignore="ContentDescription"
+                android:elevation="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlRoomName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlToolbar"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:elevation="10dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/multiplayer_toolbar_item_background">
+
+            <TextView
+                android:id="@+id/txtRoomName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Enter Room Name"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/edtTxtRoomName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@null"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:layout_below="@+id/txtRoomName"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:lines="1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlRoomSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlToolbar"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:elevation="10dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/multiplayer_toolbar_item_background">
+
+            <TextView
+                android:id="@+id/txtRoomSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Enter Room Size"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <com.frozencode.placeguessr.HorizontalPicker
+                android:id="@+id/horizontalPicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRoomSize"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:ellipsize="start"
+                android:marqueeRepeatLimit="-1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlPlayerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlToolbar"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:elevation="10dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/multiplayer_toolbar_item_background">
+
+            <TextView
+                android:id="@+id/txtPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Choose a Name"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/edtTxtPlayerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@null"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:layout_below="@+id/txtPlayerName"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:lines="1"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/rlToolbarData">
+
+        <LinearLayout
+            android:id="@+id/llInitialMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgMultiplayerTip"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_start_multiplayer"
+                android:background="@drawable/ic_circle"
+                android:backgroundTint="@color/colorAccent"
+                tools:ignore="ContentDescription"
+                android:elevation="10dp"/>
+
+            <TextView
+                android:id="@+id/txtMultiplayerTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join a room to be able to play in multiplayer mode."
+                android:textAlignment="center"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:padding="20dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRoomIntearacted"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlRoomInteracted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="10dp"
+                android:background="@drawable/room_interacted_background">
+
+                <TextView
+                    android:id="@+id/txtRoomInteracted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Room created!"
+                    android:layout_centerInParent="true"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="5dp"
+                card_view:cardBackgroundColor="@color/colorAccent"
+                android:clickable="true"
+                android:focusable="true"
+                xmlns:tools="http://schemas.android.com/tools">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text"
+                        fontPath="fonts/bold.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="#212121"
+                        android:textSize="15sp"
+                        android:text="Room Players"
+                        tools:ignore="MissingPrefix" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/usersJoinedRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnStartPlay"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:padding="4dp"
+            android:src="@drawable/baseline_check_black_48"
+            android:tint="@color/colorPrimary"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@color/colorAccent"
+            tools:ignore="ContentDescription"
+            android:elevation="10dp"/>
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/streetViewGenerateMultiplayer"
+        android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+</RelativeLayout>

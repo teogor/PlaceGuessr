@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/mSlidingLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:clipToPadding="false"
+    tools:context=".StreetViewActivity"
+    android:descendantFocusability="blocksDescendants"
+    app:umanoClipPanel="false"
+    app:umanoOverlay="true"
+    app:umanoPanelHeight="64dp"
+    app:umanoShadowHeight="4dp"
+    android:fitsSystemWindows="@bool/fitsSystemWindows">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="@bool/fitsSystemWindows"
+        android:background="#FFF9DF">
+
+        <fragment
+            android:id="@+id/street_view"
+            android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/rlLoadingStreetView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF9DF">
+
+            <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+                android:id="@+id/loadingProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/statusBar"
+            android:background="#45000000"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:elevation="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/toolbar_transparent_design"
+            android:layout_below="@+id/statusBar"
+            android:elevation="10dp">
+
+            <TextView
+                android:id="@+id/roundStreetView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Round 2/5"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:id="@+id/scoreStreetView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="27890"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="20dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mBottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:background="#45000000">
+
+        <fragment
+            android:id="@+id/map_view"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/bottomPanel"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Swipe Up to choose location"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/statusBarPanel"
+            android:background="#00FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:elevation="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/toolbarPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/toolbar_transparent_design"
+            android:layout_below="@+id/statusBarPanel"
+            android:elevation="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <TextView
+                    android:id="@+id/roundMapView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Round 2/5"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"/>
+
+                <TextView
+                    android:id="@+id/scoreMapView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="27890"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="20dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlPointChose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/messagePointChose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You were 4657km away and got 546 points!"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentTop="true"/>
+
+                <TextView
+                    android:id="@+id/btnNextRound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/messagePointChose"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="NEXT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnChooseLocation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:padding="6dp"
+            android:src="@drawable/baseline_check_black_48"
+            android:tint="@color/colorAccent"
+            android:background="@drawable/ic_circle"
+            tools:ignore="ContentDescription"
+            android:elevation="10dp"/>
+
+    </RelativeLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

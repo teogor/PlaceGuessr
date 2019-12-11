@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="gpb_colors">
+        <item>@color/colorGpb1</item>
+        <item>@color/colorGpb2</item>
+        <item>@color/colorGpb3</item>
+        <item>@color/colorGpb4</item>
+    </array>
+
+</resources>
