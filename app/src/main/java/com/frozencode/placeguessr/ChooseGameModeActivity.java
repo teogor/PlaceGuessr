@@ -1,5 +1,6 @@
 package com.frozencode.placeguessr;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,14 +84,15 @@ public class ChooseGameModeActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadSingleModeStatistics() {
 
         if (ScoreSharedPreferences.getRecordDistance() == 99999999) {
             txtLowDistanceSingle.setText("N/A");
         } else {
-            txtLowDistanceSingle.setText(String.valueOf(ScoreSharedPreferences.getRecordDistance()) + " km");
+            txtLowDistanceSingle.setText(ScoreSharedPreferences.getRecordDistance() + " km");
         }
-        txtHighScoreSingle.setText(String.valueOf(ScoreSharedPreferences.getRecordScore())+ " points");
+        txtHighScoreSingle.setText(ScoreSharedPreferences.getRecordScore() + " points");
 
         //noinspection deprecation
         icStatisticsSingle.setImageDrawable(getResources().getDrawable(R.drawable.baseline_arrow_drop_down_black_48));
