@@ -293,8 +293,8 @@ public class StreetViewActivity extends AppCompatActivity
                     rlLoadingStreetView.setVisibility(View.GONE);
 
                     mCorrectLm.setLocation(mRandomLocationModel.getLocation());
-                    mMap.addMarker(new MarkerOptions().position(mCorrectLm.getLocation()).title("Correct Location")
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                    //mMap.addMarker(new MarkerOptions().position(mCorrectLm.getLocation()).title("Correct Location")
+                    //        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     mRandomLocationModel.setLocation(streetViewPanorama.getLocation().position);
 
                     //this is not supposed to be needed
